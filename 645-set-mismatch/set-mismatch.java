@@ -10,13 +10,11 @@ class Solution {
         int n = arr.length;
         int i = 0;
         while (i < arr.length) {
-            if (arr[i] == i + 1) {
+            int idx = arr[i] - 1;
+            if (arr[i] == i + 1 || arr[i] == arr[idx]) {
                 i++;
             } else {
-                int idx = arr[i] - 1;
                 swap(arr, idx, i);
-                if (arr[i] == arr[idx])
-                    i++;
             }
         }
         for (i = 0; i < arr.length; i++) {
