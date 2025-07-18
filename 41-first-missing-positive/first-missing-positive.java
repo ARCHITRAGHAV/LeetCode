@@ -6,21 +6,12 @@ class Solution {
     }
 
     public int firstMissingPositive(int[] arr) {
-        int n = arr.length;
-        int i = 0;
+        int n = arr.length, i = 0;
         while (i < n) {
-            int index = arr[i] - 1;
-            if (arr[i] == i + 1 || arr[i] <= 0 || arr[i] > n || arr[i] == arr[index])
-                i++;
-            else {
-                swap(arr, i, index);
-            }
+            if (arr[i] <= 0 || arr[i] > n || arr[i] == i + 1 || arr[i] == arr[arr[i] - 1]) i++;
+            else swap(arr, i, arr[i] - 1);
         }
-        for (i = 0; i < arr.length; i++) {
-            if (arr[i] != i + 1) {
-                return i + 1;
-            }
-        }
+        for (i = 0; i < n; i++) if (arr[i] != i + 1) return i + 1;
         return n + 1;
     }
 }
