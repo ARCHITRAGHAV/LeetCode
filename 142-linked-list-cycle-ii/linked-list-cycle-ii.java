@@ -18,8 +18,7 @@ public class Solution {
                 temp = temp.next;
             }
             return temp;
-        } else {
-            return null;
         }
+        return null;
     }
 }
