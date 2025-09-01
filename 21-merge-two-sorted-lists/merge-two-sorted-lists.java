@@ -4,16 +4,34 @@ class Solution {
         ListNode temp2 = list2;
         ListNode head = new ListNode(100);
         ListNode temp = head;
+        // while (temp1 != null && temp2 != null) {
+        //     if (temp1.val < temp2.val) {
+        //         ListNode a = new ListNode(temp1.val);
+        //         temp.next = a;
+        //         temp = a;
+        //         temp1 = temp1.next;
+        //     } else {
+        //         ListNode a = new ListNode(temp2.val);
+        //         temp.next = a;
+        //         temp = a;
+        //         temp2 = temp2.next;
+        //     }
+        // }
+        // if (temp1 == null) {
+        //     temp.next = temp2;
+        // } else {
+        //     temp.next = temp1;
+        // }
+        // head = head.next;
+        // return head;
         while (temp1 != null && temp2 != null) {
             if (temp1.val < temp2.val) {
-                ListNode a = new ListNode(temp1.val);
-                temp.next = a;
-                temp = a;
+                temp.next = temp1;
+                temp = temp1;
                 temp1 = temp1.next;
             } else {
-                ListNode a = new ListNode(temp2.val);
-                temp.next = a;
-                temp = a;
+                temp.next = temp2;
+                temp = temp2;
                 temp2 = temp2.next;
             }
         }
@@ -22,7 +40,6 @@ class Solution {
         } else {
             temp.next = temp1;
         }
-        head = head.next;
-        return head;
+        return head.next;
     }
 }
